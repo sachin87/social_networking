@@ -1,0 +1,24 @@
+!!! XML
+!!! Strict
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %title SocialNetworking
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    - unless user_signed_in?
+      = yield :sign_in
+    - else
+      #sidemenu
+        = render 'layouts/menu'
+      #content
+        #notice
+          = flash[:notice]
+        #error
+          = flash[:error]
+        = yield
+
+:javascript
+  var CKEDITOR_BASEPATH = '/assets/ckeditor/';

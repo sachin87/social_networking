@@ -384,7 +384,7 @@ DEPENDENCIES
   paperclipdropbox
   pg
   pony
-  rails (= 3.2.2)
+  rails
   rspec-rails
   sass-rails
   shoulda
