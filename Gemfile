@@ -40,7 +40,7 @@ gem 'paperclipdropbox'
 gem 'dropbox-sdk'
 
 gem 'chosen-rails'
-gem 'slim-rails'
+gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-will_paginate'
 gem "nested_form" , :git => 'https://github.com/ryanb/nested_form.git'
