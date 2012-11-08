@@ -1,4 +1,5 @@
-Listing Pages
-- @pages.each do |page|
-  = page.title
-  = page.body
+%ul
+  = "Listing Pages"
+  - @pages.each do |page|
+    %li
+      =link_to(page.permalink, page)

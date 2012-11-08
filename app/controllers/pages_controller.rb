@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_filter :load_page, :except => [:index, :new, :create]
 
   def index
-    @page = Page.all
+    @pages = Page.all
   end
 
   def show   
