@@ -1,6 +1,8 @@
-SocialNetworking::Application.routes.draw do
-
+SocialNetworking::Application.routes.draw do 
+   
   devise_for :users
+  
+  resources :users
 
   resources :pages
 
