@@ -3,6 +3,8 @@ class Page < ActiveRecord::Base
   validates :title, :body , :presence => true
   validates :title, :length => (3..255)
   validates :body, :length => { :maximum => 10000 }
+  
+  attr_accessible :title, :permalink, :body
 
   before_create :set_paramlink
 

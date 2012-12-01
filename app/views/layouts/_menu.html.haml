@@ -5,7 +5,7 @@
   %li= link_to "Blogs", blogs_path
   %li= link_to 'Photos', photos_path
   %li= link_to 'Photo Tags', tags_path
-- if user_signed_in?
+- if true
   %li= current_user.username
   %li= link_to 'My Profile', edit_user_registration_path
   %li= link_to 'My Friends', friends_path(:user_id => current_user)

@@ -57,7 +57,11 @@ class PagesController < ApplicationController
   private
 
   def load_page
-    @page = Page.find(params[:id])
+    if params[:id].present?
+      @page = Page.find(params[:id])
+    else
+      raise "No id present"
+    end
   end
 
 end

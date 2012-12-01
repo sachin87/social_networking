@@ -1,24 +1,41 @@
 !!! XML
-!!! Strict
+!!! 
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
     %title SocialNetworking
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script><![endif]-->
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   %body
-    - unless user_signed_in?
-      = yield :sign_in
-    - else
-      #sidemenu
-        = render 'layouts/menu'
-      #content
-        #notice
-          = flash[:notice]
-        #error
-          = flash[:error]
-        = yield
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to :class => "btn btn-navbar", data: { toggle: "collapse" ,  target: ".nav-collapse" } do
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to "#", class: "brand" do
+            Some store
+          .nav-collapse
+            %ul.nav
+              %li= link_to "Link 1", "#"
+              %li= link_to "Link 2", "#"
+              %li= link_to "Link 3", "#"
+              %li= link_to "Link 4", "#"
+    .container
+      - flash.each do |name, message|
+        = link_to 'x', nil, class: "close", data: { dismiss: "alert" }
+        .alert{ class: "alert-#{ name == :notice ? "success" : "error" }" }
+          = message
+      .row
+        .span9
+          = yield
+        .span3
+          %h2 About Us
+          Lorem Ispum
+            
 
 :javascript
   var CKEDITOR_BASEPATH = '/assets/ckeditor/';
